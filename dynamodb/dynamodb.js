@@ -1,4 +1,4 @@
-const aws = require('./helper.js')
+const aws = require('./helper.js'),
       ddb = new aws.DynamoDB({
         endpoint: new aws.Endpoint('http://localhost:8888'),
         apiVersion: '2012-08-10',
@@ -10,13 +10,13 @@ let params = { TableName: 'topics' };
 
 const dynamodb = {
   populate(feeds) {
-    const totalCalls = Math.ceil(feeds.length / maxChunks);
-    const params = { RequestItems: { topics: [] } };
-    const promises = [];
+    const totalCalls = Math.ceil(feeds.length / maxChunks),
+          params = { RequestItems: { topics: [] } },
+          promises = [];
 
     for (let i = 0; i < totalCalls; i++) {
       const chunk = params;
-      chunk.RequestItems.topics = feeds.slice(i * maxChunks, (i * maxChunks) + maxChunks).map((value, e) => {
+      chunk.RequestItems.topics = feeds.slice(i * maxChunks, (i * maxChunks) + maxChunks).map((value) => {
         if(value.rss_link) {
           const obj = {
             PutRequest: {
