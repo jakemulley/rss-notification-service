@@ -11,7 +11,7 @@ const AWS = require('./helper.js'),
         AttributeDefinitions: [
           {
             AttributeName: 'topic_id',
-            AttributeType: 'N' // N for number
+            AttributeType: 'S' // N for number
           }
         ],
         StreamSpecification: {

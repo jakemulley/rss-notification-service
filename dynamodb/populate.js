@@ -41,13 +41,16 @@ const populate = {
 
       params.RequestItems.topics = params.RequestItems.topics.slice(0, 25);
 
-      ddb.batchWriteItem(params, function(error, data) {
-        if (error) {
-          console.log("Error", error);
-        } else {
-          console.log("Success", data);
-        }
-      });
+      console.log(params);
+      console.log(params.RequestItems.topics[0]);
+
+      // ddb.batchWriteItem(params, function(error, data) {
+      //   if (error) {
+      //     console.log("Error", error);
+      //   } else {
+      //     console.log("Success", data);
+      //   }
+      // });
 
     }).catch(function(error) {
       console.log('error', error);
