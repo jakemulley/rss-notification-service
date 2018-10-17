@@ -1,4 +1,4 @@
-const AWS = require('./helper.js'),
+const AWS = require('../aws/aws.js'),
       docClient = new AWS.DynamoDB.DocumentClient({endpoint: new AWS.Endpoint('http://localhost:8888')}),
       params = {
         TableName: 'topics'

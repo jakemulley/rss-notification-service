@@ -1,4 +1,4 @@
-const aws = require('./helper.js'),
+const aws = require('../aws/aws.js'),
       ddb = new aws.DynamoDB({
         endpoint: new aws.Endpoint('http://localhost:8888'),
         apiVersion: '2012-08-10',

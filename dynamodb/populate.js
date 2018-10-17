@@ -2,10 +2,7 @@ const publicBills = require('../sources/public-bills.js');
 const privateBills = require('../sources/private-bills.js');
 const committees = require('../sources/committees.js');
 
-const AWS = require('aws-sdk');
-AWS.config.update({
-  region: 'local'
-});
+const AWS = require('../aws/aws.js');
 ddb = new AWS.DynamoDB({ endpoint: new AWS.Endpoint('http://localhost:8888') });
 
 const populate = {
