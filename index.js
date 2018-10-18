@@ -4,9 +4,14 @@
 // dynamodb.populate(feeds);
 
 const ses = require('./ses/ses.js');
+
 ses.send({
-  recipients: ['mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk'],
+  recipients: ['mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk', 'mulleyjb@parliament.uk', 'gantf@parliament.uk', 'rainsleya@parliament.uk', 'rogersgb@parliament.uk', 'thompsonsc@parliament.uk', 'allets@parliament.uk'],
   html: 'Automated email test - <b>html body</b>',
   text: 'Automated email test - text body',
   subject: 'Automated email test'
+}).then(function(result) {
+
+}).catch(function(error) {
+  console.log('e', error);
 });

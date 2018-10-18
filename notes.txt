@@ -1,0 +1,12 @@
+initial setup:
+- get all rss feeds from sources (bills, committees)
+- store them in dynamodb
+
+running:
+- get feeds from dynamodb that are enabled
+- run watcher on urls
+- if update, get emails from mailchimp who are subscribed, format email, send email, update last_updated / last_sent on dynamodb
+
+periodically run:
+- get all rss feeds from sources (bills, committees)
+- store them in dynamodb. disable ones that don't exist anymore
