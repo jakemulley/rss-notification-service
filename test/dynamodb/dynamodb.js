@@ -1,11 +1,13 @@
-const ddblocal = require('local-dynamo');
-const aws = require('./helper.js');
-const mockItems = require('../mock/feeds.json');
+const ddblocal = require('local-dynamo'),
+      aws = require('./helper.js'),
+      mockItems = require('../../mock/feeds.json');
+      expected = require('./expected.json'),
+      should = require('chai').should();
+
+let dynamoInstance;
+let db;
 
 describe('DynamoDB', () => {
-
-  let dynamoInstance;
-  let db;
 
   const helper = {
     createTable() {
@@ -27,7 +29,13 @@ describe('DynamoDB', () => {
       return db.deleteTable(params).promise().then(() => db.waitFor('tableNotExists', params));
     },
     addItems(items) {
-      items = items.slice(0, 10).filter(item => item.rss_link).map(value => {
+      const params = {
+        RequestItems: {
+          Test: null
+        }
+      }
+
+      params.RequestItems.Test = items.slice(0, 10).filter(item => item.rss_link).map(value => {
         const obj = {
           PutRequest: {
             Item: {
@@ -43,19 +51,19 @@ describe('DynamoDB', () => {
         return obj;
       });
 
-      const params = { RequestItems: { Test: items } };
-
       return Promise.all([db.batchWriteItem(params).promise()]);
     },
     getItems() {
-      const params = { TableName: 'Test' };
-      params.ExpressionAttributeValues = {
-        ':a': {
-          S: '0'
-        }
+      const params = {
+        TableName: 'Test',
+        ExpressionAttributeValues: {
+          ":a": {
+            S: "0"
+          }
+        },
+        FilterExpression: "enabled <> :a",
+        Limit: 100
       };
-      params.FilterExpression = 'enabled <> :a';
-      params.Limit = 100;
       return db.scan(params).promise();
     }
   };
