@@ -2,7 +2,7 @@ const ddblocal = require('local-dynamo'),
       aws = require('./helper.js'),
       mockItems = require('../../mock/feeds.json');
       expected = require('./expected.json'),
-      should = require('chai').should();
+      assert = require('chai').assert;
 
 let dynamoInstance;
 let db;
@@ -83,14 +83,17 @@ describe('DynamoDB', () => {
   afterEach(() => helper.deleteTable());
 
   describe('populates the DynamoDB table', () => {
-    it('adds items from mock file', () => {
-      return helper.addItems(mockItems);
+    it('adds items from mock file', async () => {
+      const result = await helper.addItems(mockItems);
+      return assert.deepEqual(result, expected.addItems);
     });
   });
 
   describe('gets all topics', () => {
-    it('returns items from the database', () => {
-      return helper.getItems();
+    it('returns items from the database', async () => {
+      const add = await helper.addItems(mockItems);
+      const result = await helper.getItems();
+      return assert.deepEqual(result, expected.getItems);
     });
   });
 
